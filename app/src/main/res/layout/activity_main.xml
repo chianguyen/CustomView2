@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <org.mp.customview2.SmileyView
+        android:id="@+id/smileyFaceView"
+        android:layout_centerInParent="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <org.mp.customview2.SmileyView
+        android:id="@+id/happyButton"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        app:borderColor="#ffffff"
+        app:eyesColor="#ffffff"
+        app:faceColor="#f00"
+        app:mouthColor="#ffffff"
+        app:state="happy"/>
+
+    <org.mp.customview2.SmileyView
+        android:id="@+id/sadButton"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        app:borderColor="#000000"
+        app:eyesColor="#000000"
+        app:faceColor="#DBDADA"
+        app:mouthColor="#000000"
+        app:state="sad" />
+
+</RelativeLayout>

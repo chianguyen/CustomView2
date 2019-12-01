@@ -1,0 +1,57 @@
+3 Stages:
+    1. Measuring: define measurements
+    2. Layout:  place the view(s)
+    3. Draw: actually draw the view
+
+1. We create a class A that extends the View class
+
+2. In the XML, We add that view with the name A tag inside the activity
+
+3. In class A, we define a paint (the tool to draw) and its property
+
+4. Define methods to draw different components of the view
+
+    For example, we're drawing a smileyface, so we have 3 methods:
+        - drawEyes(canvas: Canvas)
+        - drawFaceBackground(canvas: Canvas)
+        - drawMouth(canvas: canvas)
+
+    **Note that the parameter is 'canvas'
+    ***This says "we're drawing eyes, face, and mouth on the canvas"
+
+5. override onDraw(canvas: Canvas) to start drawing.
+    *Note that the parameter is 'canvas' because we're 'drawing on a canvas'
+    **Call the draw methods inside, ORDER MATTERS. DRAW BACKGROUND BEFORE DRAW EYES
+    ***This says "Let' start drawing with the methods"
+
+6. Start drawing components:
+    1. We give the paint variable (the brush) a color
+    2. We give the paint variable a style
+        > Fill: paint.style = Paint.Style.FILL
+        > non-fill > only Stroke: = Paint.Style.STROKE
+    3. Now we got the brush, we draw shape
+        > Example: drawCircle:
+           canvas.drawCircle(x-coordinate, y-coordiate, radius, paint object)
+
+        ** If the shape is not easy like circle, we need coordinates
+        > Define the RectF: RectF holds four float coordinates for a rectangle.
+                            The rectangle is represented by the coordinates of its 4 edges (left, top, right, bottom)
+
+        > Example: val leftEyeRect = RectF(size * 0.32f, size * 0.23f, size * 0.43f, size * 0.50f)
+
+        **Draw line with no shape -> Draw Path:
+        > Example: private val mouthPath = Path()
+            > call moveTo(x, y): to move the paint, not to draw
+            > call quadTo(x1, y1, x2, y2): to draw curve from (x1, y1) to (x2, y2)
+
+7. Override onMeasure(): you want it to be responsive and fit its parent.
+
+8. Create XML Attributes:
+        - To create a new XML attribute go to res/values and create new values resource file named attrs.xml
+
+9. Add new xmls (happy and sad buttons)
+        ** Note that in the component also have "state"
+
+10. Add the states as variables
+
+11. Write setOnClickListener in Main Activity
